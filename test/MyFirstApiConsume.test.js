@@ -2,16 +2,13 @@ const agent = require('superagent-promise')(require('superagent'), Promise);
 const statusCode = require('http-status-codes');
 const chai = require('chai');
 
-const expect = chai.expect;
+const { expect } = chai;
 
 describe('First Api Test', () => {
-
-  it('Consume GET Service', () => {
-    return agent.get('https://httpbin.org/ip').then((response) => {
-      expect(response.status).to.equal(statusCode.OK);
-      expect(response.body).to.have.property('origin');
-    });
-  });
+  it('Consume GET Service', () => agent.get('https://httpbin.org/ip').then((response) => {
+    expect(response.status).to.equal(statusCode.OK);
+    expect(response.body).to.have.property('origin');
+  }));
 
   it('Consume GET service with query parameters', () => {
     const query = {
@@ -24,7 +21,7 @@ describe('First Api Test', () => {
       .get('https://httpbin.org/get')
       .query(query)
       .then((response) => {
-        expect(response.status).to.equal(statusCode.OK)
+        expect(response.status).to.equal(statusCode.OK);
         expect(response.body.args).to.eql(query);
       });
   });
@@ -35,54 +32,43 @@ describe('First Api Test', () => {
     city: 'New York'
   };
 
-  it('Consume POST service', () => {
-    return agent
-      .post('https://httpbin.org/post')
-      .send(body)
-      .then((response) => {
-        expect(response.status).to.equal(statusCode.OK);
-        expect(response.body.json).to.eql(body);
-      });
-  });
+  it('Consume POST service', () => agent
+    .post('https://httpbin.org/post')
+    .send(body)
+    .then((response) => {
+      expect(response.status).to.equal(statusCode.OK);
+      expect(response.body.json).to.eql(body);
+    }));
 
-  it('Consume PUT service', () => {
-    return agent
-      .put('https://httpbin.org/put')
-      .send(body)
-      .then((response) => {
-        expect(response.status).to.equal(statusCode.OK);
-        expect(response.body.json).to.eql(body);
-      });
-  });
+  it('Consume PUT service', () => agent
+    .put('https://httpbin.org/put')
+    .send(body)
+    .then((response) => {
+      expect(response.status).to.equal(statusCode.OK);
+      expect(response.body.json).to.eql(body);
+    }));
 
-  it('Consume PATCH service', () => {
+  it('Consume PATCH service', () => agent
+    .patch('https://httpbin.org/patch')
+    .send(body)
+    .then((response) => {
+      expect(response.status).to.equal(statusCode.OK);
+      expect(response.body.json).to.eql(body);
+    }));
 
-    return agent
-      .patch('https://httpbin.org/patch')
-      .send(body)
-      .then((response) => {
-        expect(response.status).to.equal(statusCode.OK);
-        expect(response.body.json).to.eql(body);
-      });
-  });
+  it('Consume HEAD service', () => agent
+    .head('https://httpbin.org/headers')
+    .query(body)
+    .then((response) => {
+      expect(response.status).to.equal(statusCode.OK);
+      expect(response.body).to.eql({});
+    }));
 
-  it('Consume HEAD service', () => {
-    return agent
-      .head('https://httpbin.org/headers')
-      .query(body)
-      .then((response) => {
-        expect(response.status).to.equal(statusCode.OK);
-        expect(response.body).to.eql({})
-      });
-  });
-
-  it('Consume DELETE service', () => {
-    return agent
-      .del('https://httpbin.org/delete')
-      .send(body)
-      .then((response) => {
-        expect(response.status).to.equal(statusCode.OK);
-        expect(response.body.json).to.eql(body);
-      });
-  });
+  it('Consume DELETE service', () => agent
+    .del('https://httpbin.org/delete')
+    .send(body)
+    .then((response) => {
+      expect(response.status).to.equal(statusCode.OK);
+      expect(response.body.json).to.eql(body);
+    }));
 });
