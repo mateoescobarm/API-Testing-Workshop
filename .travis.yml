@@ -1,8 +1,11 @@
 language: node_js
-cache:
+cache: 
 directories:
-  - node_modules
+- node_modules
 notifications:
- email: true
+  email: true
 node_js:
-  - '8'
+- '8'
+env:
+  global:
+    secure: AvoEUu6R35OIpCeMyfnu8m9YOeLGRIYVUnnj6qNLdjuHbNp5dEiPsRgEL3TZQr2uJwoP1wEKrhrPu8U1cMD0J7N3+BNmMeW0yiJRjCXM9LYBgQtHSK7NGyxk2w6Huw7Xiw79Bup/DSNGRTksea8HNNE6n4S8a4m4Uesl2O/GFw4Mal9252T0zeUAchamoYXzfwAS6wqNOY417YktxG0FGFn0jH+JbCMwf0tBFznOd3XkVKmf5k3CdfNpoSiS1fI+uxUgLWC6QRMdgKUSpjgA06d4+dCEwoHFz6AJVmKxnbOM30e/vcE8n5NmzRPwUgM3EFkHIEmA/dxijhyyFOJTudK1yAGr1E9fdisPn+QpVSNV7Y5t0m6K6uKiUJDVp5oFL1ssmzj/SRr983B3uN5OUrotF0kV49Qp08EdFEvep1M8b5tixQGlQ2MjWcG1lbSB8ONTFJ7ghKOqMU2kx0l089gfybWdq8HnUufDPZPGSD0PXIqVpK1NIMWu8ltLxH+EOm+UM5zawdedfQS5zwfgENi0lVs/xocjgAYwpZF/C1anR6hMOkIcQx4mV0LDy3yg9x3fwcAOKoXu+BxyS6Izucb5d5tqhTa80ZUaB8UWTXfR1QqRlt+8IwtD09fmKlC3cseDmOjf14RXfrjr+wKckpiRQwoMrRg/lfxv2YyP9E4=
