@@ -67,7 +67,7 @@ describe('having a logged user', () => {
             editedIssue = response;
           }));
 
-        it.only('then the issue should be modified', () => {
+        it('then the issue should be modified', () => {
           expect(editedIssue.status).to.equal(statusCode.OK);
           expect(editedIssue.body).to.containSubset(issue);
           expect(editedIssue.body).to.containSubset(issueBody);
