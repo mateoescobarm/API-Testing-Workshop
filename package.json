@@ -32,7 +32,8 @@
     "http-status-codes": "^1.3.0",
     "md5": "^2.2.1",
     "mocha": "^5.2.0",
-    "mochawesome": "^3.0.3"
+    "mochawesome": "^3.0.3",
+    "superagent-response-time": "^1.0.3"
   },
   "dependencies": {
     "superagent": "^4.0.0-beta.5",
