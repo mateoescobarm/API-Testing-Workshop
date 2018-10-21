@@ -73,7 +73,7 @@ describe('creating a gist on github', () => {
             gistAfterDelete = error;
           }));
 
-        it.only('then the gist should not exist', () => {
+        it('then the gist should not exist', () => {
           assert.notExists(gistAfterDelete.body);
           expect(gistAfterDelete.status).to.equal(statusCode.NOT_FOUND);
         });
