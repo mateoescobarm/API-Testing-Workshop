@@ -1,8 +1,9 @@
 const agent = require('superagent-promise')(require('superagent'), Promise);
 const chai = require('chai');
-const { listPublicEventsSchema } = require('./schema/ListPublicEvents.schema');
+const { listPublicEventsSchema } = require('../schema/ListPublicEvents.schema');
 
 const { expect } = chai;
+
 chai.use(require('chai-json-schema'));
 
 const urlBase = 'https://api.github.com';
